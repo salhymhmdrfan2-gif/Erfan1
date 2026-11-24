@@ -1,0 +1,1278 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Erfan. | فروشگاه قطعات کامپیوتر</title>
+  <meta name="description" content="فروشگاه قطعات کامپیوتر Erfan. — قطعات، اسمبل هوشمند، تخفیف‌ها، تجهیزات جانبی و شبکه">
+  <meta name="color-scheme" content="dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Lalezar&family=Orbitron:wght@500;800&family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+/* =====================================================
+   Erfan. — استایل دارک
+   ۴ فونت:
+   1) Orbitron   → لوگو و عناوین لاتین
+   2) Lalezar    → تیترها
+   3) Vazirmatn  → متن اصلی، قیمت‌ها، فرم‌ها
+   4) Aref Ruqaa → زیرعنوان‌ها، برچسب‌ها و جمله‌های تزئینی
+   ===================================================== */
+:root {
+  --bg: #080a10;
+  --bg2: #0d111a;
+  --surface: #121723;
+  --surface2: #181f2e;
+  --border: #242d41;
+  --text: #e8ecf5;
+  --muted: #8d98b3;
+  --accent: #22d3ee;
+  --accent2: #8b5cf6;
+  --good: #34d399;
+  --bad: #f87171;
+  --warn: #fbbf24;
+  --radius: 16px;
+  --f-logo: 'Orbitron', 'Vazirmatn', sans-serif;
+  --f-head: 'Lalezar', 'Vazirmatn', cursive;
+  --f-body: 'Vazirmatn', Tahoma, sans-serif;
+  --f-accent: 'Aref Ruqaa', 'Vazirmatn', serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  background-image:
+    radial-gradient(900px 500px at 85% -10%, rgba(139, 92, 246, .16), transparent 60%),
+    radial-gradient(700px 500px at 5% 5%, rgba(34, 211, 238, .12), transparent 60%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--f-body);
+  line-height: 1.8;
+  min-height: 100vh;
+}
+[hidden] { display: none !important; }
+#shop { min-height: 100vh; display: flex; flex-direction: column; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font-family: inherit; font-size: 1rem; color: inherit; }
+h1, h2, h3, h4 { font-family: var(--f-head); font-weight: 400; line-height: 1.4; }
+.container { width: min(1240px, 94%); margin-inline: auto; }
+main { flex: 1; padding-block: 28px 60px; }
+
+/* ---------- Header ---------- */
+.header { position: sticky; top: 0; z-index: 50; background: rgba(8, 10, 16, .82); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+.header .container { display: flex; align-items: center; gap: 22px; height: 68px; }
+.logo { font-family: var(--f-logo); font-weight: 800; font-size: 1.7rem; letter-spacing: .5px; direction: ltr; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.logo span { color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.nav { display: flex; gap: 4px; flex: 1; overflow-x: auto; scrollbar-width: none; }
+.nav a { padding: 8px 14px; border-radius: 10px; color: var(--muted); white-space: nowrap; font-weight: 600; transition: .2s; }
+.nav a:hover { color: var(--text); background: var(--surface); }
+.nav a.active { color: var(--bg); background: linear-gradient(90deg, var(--accent), #67e8f9); }
+.nav a.hot { color: var(--warn); }
+.nav a.hot.active { color: var(--bg); }
+.head-actions { display: flex; gap: 10px; align-items: center; }
+.icon-btn { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 8px 14px; cursor: pointer; transition: .2s; display: inline-flex; gap: 6px; align-items: center; }
+.icon-btn:hover { border-color: var(--accent); }
+.cart-count { background: var(--accent2); color: #fff; border-radius: 99px; min-width: 22px; height: 22px; font-size: .78rem; display: grid; place-items: center; padding-inline: 5px; }
+
+/* ---------- Buttons / inputs ---------- */
+.btn { border: 0; cursor: pointer; border-radius: 12px; padding: 10px 20px; font-weight: 700; transition: .2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent2)); color: #06080d; }
+.btn-primary:hover { filter: brightness(1.12); transform: translateY(-1px); }
+.btn-ghost { background: var(--surface2); border: 1px solid var(--border); }
+.btn-ghost:hover { border-color: var(--accent); }
+.btn-danger { background: rgba(248, 113, 113, .15); color: var(--bad); border: 1px solid rgba(248, 113, 113, .4); }
+.btn-sm { padding: 5px 12px; font-size: .88rem; border-radius: 9px; }
+.btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+input, select, textarea { background: var(--bg2); border: 1px solid var(--border); border-radius: 11px; padding: 10px 14px; width: 100%; outline: none; transition: .2s; }
+input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(34, 211, 238, .15); }
+select option { background: var(--bg2); }
+label { display: block; font-size: .9rem; color: var(--muted); margin-bottom: 4px; }
+.field { margin-bottom: 14px; }
+input[type=range] { padding: 0; accent-color: var(--accent); }
+input[type=checkbox] { width: auto; accent-color: var(--accent); }
+
+/* ---------- Generic ---------- */
+.section-title { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.section-title h2 { font-size: 2rem; }
+.kicker { font-family: var(--f-accent); color: var(--accent); font-size: 1.25rem; }
+.sub { color: var(--muted); }
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+.grid { display: grid; gap: 18px; }
+.grid.cards { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.muted { color: var(--muted); }
+.good { color: var(--good); } .bad { color: var(--bad); } .warn { color: var(--warn); }
+.empty { text-align: center; padding: 50px 10px; color: var(--muted); }
+
+/* ---------- Hero ---------- */
+.hero { border: 1px solid var(--border); border-radius: 28px; padding: 54px 40px; margin-bottom: 36px; position: relative; overflow: hidden; background:
+  linear-gradient(135deg, rgba(34, 211, 238, .09), rgba(139, 92, 246, .14)), var(--surface); }
+.hero::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 42px 42px; opacity: .22; mask-image: radial-gradient(circle at 20% 40%, #000, transparent 70%); -webkit-mask-image: radial-gradient(circle at 20% 40%, #000, transparent 70%); pointer-events: none; }
+.hero > * { position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); max-width: 14em; }
+.hero h1 b { font-weight: 400; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .tag { font-family: var(--f-accent); font-size: 1.6rem; color: var(--accent); margin: 8px 0 22px; }
+.hero p { max-width: 38em; color: var(--muted); margin-bottom: 26px; }
+.hero .glyph { position: absolute; left: 40px; top: 50%; transform: translateY(-50%); font-size: 11rem; opacity: .12; z-index: 0; }
+
+.cat-tiles { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); margin-bottom: 40px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 16px; text-align: center; transition: .25s; cursor: pointer; }
+.tile:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 10px 30px -12px rgba(34, 211, 238, .45); }
+.tile .ic { font-size: 2.4rem; display: block; }
+.tile b { display: block; margin-top: 6px; }
+.tile small { color: var(--muted); }
+
+/* ---------- Product card ---------- */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: .25s; position: relative; }
+.card:hover { border-color: #3a4766; transform: translateY(-3px); }
+.card .thumb { height: 130px; display: grid; place-items: center; font-size: 3.6rem; background: radial-gradient(circle at 50% 30%, rgba(139, 92, 246, .22), transparent 65%), var(--surface2); position: relative; overflow: hidden; }
+.card .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.badge { position: absolute; top: 10px; right: 10px; font-family: var(--f-accent); font-size: 1.1rem; background: var(--bad); color: #fff; border-radius: 99px; padding: 0 12px; line-height: 1.7; }
+.badge.out { background: #475069; }
+.card .body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.pbrand { color: var(--accent); font-size: .8rem; font-family: var(--f-logo); direction: ltr; text-align: right; }
+.pname { font-weight: 700; unicode-bidi: plaintext; text-align: right; }
+.pspec { color: var(--muted); font-size: .83rem; unicode-bidi: plaintext; }
+.price-box { margin-top: auto; padding-top: 8px; }
+.old { color: var(--muted); text-decoration: line-through; font-size: .85rem; }
+.price { font-weight: 800; font-size: 1.1rem; color: var(--good); }
+.price small { font-weight: 400; color: var(--muted); font-size: .8rem; }
+.card .actions { display: flex; gap: 8px; margin-top: 10px; }
+.card .actions .btn { flex: 1; }
+
+/* ---------- Listing ---------- */
+.tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 16px; scrollbar-width: thin; }
+.tab { white-space: nowrap; padding: 8px 16px; border-radius: 99px; background: var(--surface); border: 1px solid var(--border); cursor: pointer; transition: .2s; }
+.tab:hover { border-color: var(--accent); }
+.tab.active { background: var(--accent); color: #06080d; border-color: var(--accent); font-weight: 700; }
+.filters { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 12px; margin-bottom: 20px; align-items: end; }
+@media (max-width: 860px) { .filters { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Modal / toast ---------- */
+.overlay { position: fixed; inset: 0; background: rgba(3, 5, 9, .75); backdrop-filter: blur(4px); z-index: 100; display: grid; place-items: center; padding: 18px; }
+.modal { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; width: min(640px, 100%); max-height: 90vh; overflow: auto; padding: 26px; position: relative; }
+.modal h3 { font-size: 1.6rem; margin-bottom: 12px; }
+.modal .close { position: absolute; left: 16px; top: 14px; background: none; border: 0; font-size: 1.6rem; cursor: pointer; color: var(--muted); }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px 12px; text-align: right; border-bottom: 1px solid var(--border); vertical-align: middle; }
+th { color: var(--muted); font-weight: 600; font-size: .88rem; white-space: nowrap; }
+.table-wrap { overflow-x: auto; }
+.spec-table td:first-child { color: var(--muted); width: 40%; }
+#toasts { position: fixed; bottom: 22px; left: 22px; z-index: 200; display: flex; flex-direction: column; gap: 8px; }
+.toast { background: var(--surface2); border: 1px solid var(--accent); border-radius: 12px; padding: 10px 18px; animation: pop .25s; }
+.toast.err { border-color: var(--bad); }
+@keyframes pop { from { opacity: 0; transform: translateY(10px); } }
+
+/* ---------- Assembly ---------- */
+.asm-layout { display: grid; grid-template-columns: 340px 1fr; gap: 22px; align-items: start; }
+@media (max-width: 960px) { .asm-layout { grid-template-columns: 1fr; } }
+.asm-form { position: sticky; top: 90px; }
+.budget-out { font-weight: 800; color: var(--accent); font-size: 1.15rem; }
+.check-list { list-style: none; display: grid; gap: 4px; margin-top: 8px; }
+.check-list li::before { content: '✔ '; color: var(--good); }
+.check-list li.no::before { content: '✖ '; color: var(--bad); }
+.check-list li.no { color: var(--bad); }
+.asm-row { display: grid; grid-template-columns: 150px 1fr 140px; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--border); }
+.asm-row:last-child { border: 0; }
+.asm-row .cname { color: var(--muted); }
+.asm-row .cname i { font-style: normal; font-size: 1.3rem; margin-left: 6px; }
+.asm-row .p { text-align: left; font-weight: 700; }
+@media (max-width: 640px) { .asm-row { grid-template-columns: 1fr; } .asm-row .p { text-align: right; } }
+.totals { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); display: grid; gap: 6px; }
+.totals .line { display: flex; justify-content: space-between; }
+.totals .grand { font-size: 1.5rem; font-weight: 800; color: var(--good); }
+.notice { background: rgba(251, 191, 36, .1); border: 1px solid rgba(251, 191, 36, .4); color: var(--warn); border-radius: 12px; padding: 12px 16px; }
+
+/* ---------- Cart ---------- */
+.cart-layout { display: grid; grid-template-columns: 1fr 360px; gap: 22px; align-items: start; }
+@media (max-width: 900px) { .cart-layout { grid-template-columns: 1fr; } }
+.qty { display: inline-flex; align-items: center; gap: 8px; }
+.qty button { width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface2); cursor: pointer; }
+
+/* ---------- Footer ---------- */
+.footer { border-top: 1px solid var(--border); padding: 26px 0; color: var(--muted); background: var(--bg2); }
+.footer .container { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; align-items: center; }
+.footer .accent { font-family: var(--f-accent); font-size: 1.3rem; color: var(--accent); }
+
+/* پنل ادمین — مکمل style.css */
+.login-wrap { min-height: 100vh; display: grid; place-items: center; padding: 20px; }
+.login-box { width: min(400px, 100%); text-align: center; }
+.login-box .logo { font-size: 2.6rem; display: inline-block; }
+.login-box h2 { margin: 6px 0 4px; }
+.login-box form { text-align: right; margin-top: 18px; }
+
+.adm { display: grid; grid-template-columns: 230px 1fr; min-height: 100vh; }
+.side { background: var(--bg2); border-left: 1px solid var(--border); padding: 20px 14px; display: flex; flex-direction: column; gap: 6px; position: sticky; top: 0; height: 100vh; }
+.side .logo { font-size: 1.6rem; margin-bottom: 4px; }
+.side small { font-family: var(--f-accent); color: var(--accent); font-size: 1.1rem; margin-bottom: 14px; }
+.side button.nav-i { text-align: right; background: none; border: 0; padding: 10px 14px; border-radius: 10px; cursor: pointer; color: var(--muted); font-weight: 600; transition: .2s; }
+.side button.nav-i:hover { background: var(--surface); color: var(--text); }
+.side button.nav-i.active { background: linear-gradient(90deg, var(--accent), #67e8f9); color: var(--bg); }
+.side .grow { flex: 1; }
+.content { padding: 28px 30px 60px; min-width: 0; }
+.content h2 { font-size: 1.9rem; margin-bottom: 14px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 22px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+.stat small { color: var(--muted); }
+.stat b { display: block; font-size: 1.6rem; color: var(--accent); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 900px) {
+  .adm { grid-template-columns: 1fr; }
+  .side { position: static; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .side .grow { display: none; }
+  .two { grid-template-columns: 1fr; }
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+.form-grid .full { grid-column: 1 / -1; }
+.pill { display: inline-block; padding: 0 10px; border-radius: 99px; font-size: .8rem; border: 1px solid var(--border); background: var(--surface2); }
+.pill.on { color: var(--good); border-color: var(--good); }
+.pill.off { color: var(--bad); border-color: var(--bad); }
+td input, td select { padding: 5px 8px; border-radius: 8px; min-width: 80px; }
+.panel + .panel { margin-top: 18px; }
+
+</style>
+</head>
+<body>
+  <div id="shop">
+  <header class="header">
+    <div class="container">
+      <a href="#/" class="logo">Erfan<span>.</span></a>
+      <nav class="nav" id="nav">
+        <a href="#/" data-r="">خانه</a>
+        <a href="#/parts" data-r="parts">قطعات</a>
+        <a href="#/assembly" data-r="assembly">اسمبل هوشمند</a>
+        <a href="#/discounts" data-r="discounts" class="hot">🔥 تخفیف‌ها</a>
+        <a href="#/periph" data-r="periph">تجهیزات جانبی</a>
+        <a href="#/net" data-r="net">تجهیزات شبکه</a>
+      </nav>
+      <div class="head-actions">
+        <a class="icon-btn" href="#/cart" aria-label="سبد خرید">🛒 <span class="cart-count" id="cartCount">0</span></a>
+        <a class="icon-btn" href="#/admin" title="ورود مدیر">⚙️</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="app"></main>
+
+  <footer class="footer">
+    <div class="container">
+      <div><span class="logo" style="font-size:1.3rem">Erfan.</span> <span class="accent">قدرت را خودت بساز</span></div>
+      <div id="footPhone"></div>
+    </div>
+  </footer>
+  </div>
+  <div id="adminRoot" hidden></div>
+  <div id="toasts"></div>
+
+  <script>
+/* =====================================================
+   Erfan. — داده‌های پیش‌فرض فروشگاه
+   (در اولین اجرا در localStorage کپی می‌شود)
+   قیمت‌ها به تومان
+   ===================================================== */
+(function () {
+  const P = (id, cat, name, brand, price, discount, stock, spec) =>
+    ({ id, cat, name, brand, price, discount, stock, img: '', spec });
+
+  const categories = [
+    { id: 'cpu',     name: 'پردازنده (CPU)',       group: 'parts',  icon: '🧠' },
+    { id: 'gpu',     name: 'کارت گرافیک (GPU)',    group: 'parts',  icon: '🎮' },
+    { id: 'ram',     name: 'حافظه رم (RAM)',       group: 'parts',  icon: '💾' },
+    { id: 'mb',      name: 'مادربرد',               group: 'parts',  icon: '🔌' },
+    { id: 'storage', name: 'حافظه جانبی',           group: 'parts',  icon: '🗄️' },
+    { id: 'cooler',  name: 'خنک‌کننده',             group: 'parts',  icon: '❄️' },
+    { id: 'deco',    name: 'قطعات تزئینی',          group: 'parts',  icon: '✨' },
+    { id: 'case',    name: 'کیس',                   group: 'parts',  icon: '🖥️' },
+    { id: 'psu',     name: 'منبع تغذیه (پاور)',     group: 'parts',  icon: '⚡' },
+    { id: 'periph',  name: 'تجهیزات جانبی',         group: 'periph', icon: '⌨️' },
+    { id: 'net',     name: 'تجهیزات شبکه',          group: 'net',    icon: '📡' }
+  ];
+
+  const yn = ['بله', 'خیر'];
+  const sockets = ['AM4', 'AM5', 'LGA1700', 'LGA1851'];
+  const specSchema = {
+    cpu: [
+      { k: 'socket', label: 'سوکت', type: 'select', options: sockets },
+      { k: 'cores', label: 'تعداد هسته', type: 'number' },
+      { k: 'tdp', label: 'توان مصرفی (وات)', type: 'number' },
+      { k: 'score', label: 'امتیاز عملکرد (۱ تا ۱۰۰)', type: 'number' },
+      { k: 'igpu', label: 'گرافیک داخلی', type: 'select', options: yn }
+    ],
+    gpu: [
+      { k: 'vram', label: 'حافظه (GB)', type: 'number' },
+      { k: 'tdp', label: 'توان مصرفی (وات)', type: 'number' },
+      { k: 'length', label: 'طول کارت (mm)', type: 'number' },
+      { k: 'score', label: 'امتیاز عملکرد (۱ تا ۱۰۰)', type: 'number' }
+    ],
+    ram: [
+      { k: 'type', label: 'نوع', type: 'select', options: ['DDR4', 'DDR5'] },
+      { k: 'size', label: 'ظرفیت کل (GB)', type: 'number' },
+      { k: 'speed', label: 'سرعت (MHz)', type: 'number' }
+    ],
+    mb: [
+      { k: 'socket', label: 'سوکت', type: 'select', options: sockets },
+      { k: 'ramType', label: 'نوع رم پشتیبانی‌شده', type: 'select', options: ['DDR4', 'DDR5'] },
+      { k: 'form', label: 'فرم‌فاکتور', type: 'select', options: ['ATX', 'mATX', 'ITX'] },
+      { k: 'chipset', label: 'چیپست', type: 'text' }
+    ],
+    storage: [
+      { k: 'kind', label: 'نوع', type: 'select', options: ['NVMe SSD', 'SATA SSD', 'HDD', 'SSD اکسترنال', 'HDD اکسترنال'] },
+      { k: 'size', label: 'ظرفیت (GB)', type: 'number' }
+    ],
+    cooler: [
+      { k: 'ctype', label: 'نوع', type: 'select', options: ['هوایی', 'مایع'] },
+      { k: 'sockets', label: 'سوکت‌های پشتیبانی‌شده (با ویرگول)', type: 'text' },
+      { k: 'maxTdp', label: 'حداکثر TDP (وات)', type: 'number' }
+    ],
+    deco: [
+      { k: 'dtype', label: 'نوع', type: 'text' }
+    ],
+    case: [
+      { k: 'forms', label: 'مادربردهای سازگار (با ویرگول)', type: 'text' },
+      { k: 'maxGpu', label: 'حداکثر طول GPU (mm)', type: 'number' }
+    ],
+    psu: [
+      { k: 'watt', label: 'توان (وات)', type: 'number' },
+      { k: 'rating', label: 'گواهی 80+', type: 'text' }
+    ],
+    periph: [
+      { k: 'ptype', label: 'نوع', type: 'select', options: ['کیبورد', 'ماوس', 'مانیتور', 'هدست', 'وب‌کم', 'پد ماوس', 'اسپیکر'] },
+      { k: 'detail', label: 'مشخصات', type: 'text' }
+    ],
+    net: [
+      { k: 'ntype', label: 'نوع', type: 'select', options: ['مودم/روتر', 'سوییچ', 'کارت شبکه', 'اکسس‌پوینت', 'کابل شبکه', 'تقویت‌کننده'] },
+      { k: 'detail', label: 'مشخصات', type: 'text' }
+    ]
+  };
+
+  const ALL = 'AM4,AM5,LGA1700,LGA1851';
+  const products = [
+    /* ---------- CPU ---------- */
+    P('c1', 'cpu', 'Ryzen 5 5600', 'AMD', 5200000, 0, 12, { socket: 'AM4', cores: 6, tdp: 65, score: 48, igpu: 'خیر' }),
+    P('c2', 'cpu', 'Ryzen 7 5700X3D', 'AMD', 11000000, 8, 6, { socket: 'AM4', cores: 8, tdp: 105, score: 66, igpu: 'خیر' }),
+    P('c3', 'cpu', 'Ryzen 5 7500F', 'AMD', 9500000, 0, 10, { socket: 'AM5', cores: 6, tdp: 65, score: 62, igpu: 'خیر' }),
+    P('c4', 'cpu', 'Ryzen 5 9600X', 'AMD', 12500000, 5, 8, { socket: 'AM5', cores: 6, tdp: 65, score: 70, igpu: 'بله' }),
+    P('c5', 'cpu', 'Ryzen 7 7800X3D', 'AMD', 24000000, 0, 5, { socket: 'AM5', cores: 8, tdp: 120, score: 90, igpu: 'بله' }),
+    P('c6', 'cpu', 'Ryzen 9 9950X', 'AMD', 33000000, 10, 3, { socket: 'AM5', cores: 16, tdp: 170, score: 97, igpu: 'بله' }),
+    P('c7', 'cpu', 'Core i3-12100F', 'Intel', 3800000, 0, 15, { socket: 'LGA1700', cores: 4, tdp: 58, score: 35, igpu: 'خیر' }),
+    P('c8', 'cpu', 'Core i3-12100', 'Intel', 4300000, 0, 9, { socket: 'LGA1700', cores: 4, tdp: 60, score: 36, igpu: 'بله' }),
+    P('c9', 'cpu', 'Core i5-13400F', 'Intel', 8000000, 0, 11, { socket: 'LGA1700', cores: 10, tdp: 65, score: 52, igpu: 'خیر' }),
+    P('c10', 'cpu', 'Core i5-14600K', 'Intel', 14500000, 12, 7, { socket: 'LGA1700', cores: 14, tdp: 125, score: 73, igpu: 'بله' }),
+    P('c11', 'cpu', 'Core i7-14700K', 'Intel', 20500000, 0, 6, { socket: 'LGA1700', cores: 20, tdp: 125, score: 84, igpu: 'بله' }),
+    P('c12', 'cpu', 'Core i9-14900K', 'Intel', 30000000, 0, 4, { socket: 'LGA1700', cores: 24, tdp: 125, score: 95, igpu: 'بله' }),
+    P('c13', 'cpu', 'Core Ultra 7 265K', 'Intel', 21000000, 7, 5, { socket: 'LGA1851', cores: 20, tdp: 125, score: 86, igpu: 'بله' }),
+
+    /* ---------- GPU ---------- */
+    P('g1', 'gpu', 'GeForce GTX 1650 4GB', 'MSI', 6500000, 0, 8, { vram: 4, tdp: 75, length: 200, score: 25 }),
+    P('g2', 'gpu', 'Radeon RX 7600 8GB', 'Gigabyte', 11500000, 6, 9, { vram: 8, tdp: 165, length: 240, score: 44 }),
+    P('g3', 'gpu', 'GeForce RTX 4060 8GB', 'ASUS', 14500000, 0, 12, { vram: 8, tdp: 115, length: 240, score: 50 }),
+    P('g4', 'gpu', 'GeForce RTX 4060 Ti 16GB', 'MSI', 20000000, 0, 6, { vram: 16, tdp: 160, length: 250, score: 58 }),
+    P('g5', 'gpu', 'Radeon RX 7800 XT 16GB', 'Sapphire', 29000000, 9, 5, { vram: 16, tdp: 263, length: 300, score: 70 }),
+    P('g6', 'gpu', 'GeForce RTX 4070 Super 12GB', 'ASUS', 33000000, 0, 7, { vram: 12, tdp: 220, length: 300, score: 72 }),
+    P('g7', 'gpu', 'GeForce RTX 4070 Ti Super 16GB', 'Gigabyte', 44000000, 0, 4, { vram: 16, tdp: 285, length: 320, score: 80 }),
+    P('g8', 'gpu', 'Radeon RX 7900 XTX 24GB', 'Sapphire', 52000000, 5, 3, { vram: 24, tdp: 355, length: 320, score: 85 }),
+    P('g9', 'gpu', 'GeForce RTX 4080 Super 16GB', 'MSI', 62000000, 0, 3, { vram: 16, tdp: 320, length: 340, score: 90 }),
+    P('g10', 'gpu', 'GeForce RTX 4090 24GB', 'ASUS', 120000000, 0, 2, { vram: 24, tdp: 450, length: 350, score: 100 }),
+
+    /* ---------- RAM ---------- */
+    P('r1', 'ram', 'DDR4 8GB 3200MHz', 'Kingston', 1100000, 0, 20, { type: 'DDR4', size: 8, speed: 3200 }),
+    P('r2', 'ram', 'DDR4 16GB (2x8) 3200MHz', 'Corsair', 2100000, 0, 18, { type: 'DDR4', size: 16, speed: 3200 }),
+    P('r3', 'ram', 'DDR4 32GB (2x16) 3600MHz', 'G.Skill', 4200000, 5, 10, { type: 'DDR4', size: 32, speed: 3600 }),
+    P('r4', 'ram', 'DDR5 16GB (2x8) 5600MHz', 'Kingston', 2700000, 0, 15, { type: 'DDR5', size: 16, speed: 5600 }),
+    P('r5', 'ram', 'DDR5 32GB (2x16) 6000MHz', 'G.Skill', 5800000, 0, 12, { type: 'DDR5', size: 32, speed: 6000 }),
+    P('r6', 'ram', 'DDR5 32GB (2x16) 7200MHz RGB', 'Corsair', 8000000, 10, 6, { type: 'DDR5', size: 32, speed: 7200 }),
+    P('r7', 'ram', 'DDR5 64GB (2x32) 6000MHz', 'Corsair', 11500000, 0, 5, { type: 'DDR5', size: 64, speed: 6000 }),
+
+    /* ---------- Motherboard ---------- */
+    P('m1', 'mb', 'A520M', 'Gigabyte', 3300000, 0, 8, { socket: 'AM4', ramType: 'DDR4', form: 'mATX', chipset: 'A520' }),
+    P('m2', 'mb', 'B550M Pro', 'MSI', 5200000, 0, 9, { socket: 'AM4', ramType: 'DDR4', form: 'mATX', chipset: 'B550' }),
+    P('m3', 'mb', 'A620M', 'ASRock', 5500000, 0, 8, { socket: 'AM5', ramType: 'DDR5', form: 'mATX', chipset: 'A620' }),
+    P('m4', 'mb', 'B650 Gaming Plus', 'MSI', 9000000, 5, 7, { socket: 'AM5', ramType: 'DDR5', form: 'ATX', chipset: 'B650' }),
+    P('m5', 'mb', 'B650I Aorus (ITX)', 'Gigabyte', 12000000, 0, 3, { socket: 'AM5', ramType: 'DDR5', form: 'ITX', chipset: 'B650' }),
+    P('m6', 'mb', 'X670E Hero', 'ASUS', 17000000, 0, 3, { socket: 'AM5', ramType: 'DDR5', form: 'ATX', chipset: 'X670E' }),
+    P('m7', 'mb', 'H610M', 'ASUS', 3200000, 0, 10, { socket: 'LGA1700', ramType: 'DDR4', form: 'mATX', chipset: 'H610' }),
+    P('m8', 'mb', 'B760M DDR4', 'MSI', 5800000, 0, 8, { socket: 'LGA1700', ramType: 'DDR4', form: 'mATX', chipset: 'B760' }),
+    P('m9', 'mb', 'B760M DDR5', 'Gigabyte', 7200000, 0, 7, { socket: 'LGA1700', ramType: 'DDR5', form: 'mATX', chipset: 'B760' }),
+    P('m10', 'mb', 'Z790 Aorus Elite', 'Gigabyte', 14500000, 8, 5, { socket: 'LGA1700', ramType: 'DDR5', form: 'ATX', chipset: 'Z790' }),
+    P('m11', 'mb', 'Z890 Tomahawk', 'MSI', 16500000, 0, 4, { socket: 'LGA1851', ramType: 'DDR5', form: 'ATX', chipset: 'Z890' }),
+
+    /* ---------- Storage ---------- */
+    P('s1', 'storage', 'SSD NVMe 500GB', 'WD', 1800000, 0, 20, { kind: 'NVMe SSD', size: 500 }),
+    P('s2', 'storage', 'SSD NVMe 1TB', 'Samsung', 3200000, 5, 18, { kind: 'NVMe SSD', size: 1000 }),
+    P('s3', 'storage', 'SSD NVMe 2TB', 'Samsung', 6500000, 0, 9, { kind: 'NVMe SSD', size: 2000 }),
+    P('s4', 'storage', 'SSD SATA 480GB', 'Kingston', 1400000, 0, 14, { kind: 'SATA SSD', size: 480 }),
+    P('s5', 'storage', 'HDD 2TB 7200rpm', 'Seagate', 3000000, 0, 10, { kind: 'HDD', size: 2000 }),
+    P('s6', 'storage', 'SSD اکسترنال 1TB', 'Samsung', 4500000, 10, 8, { kind: 'SSD اکسترنال', size: 1000 }),
+    P('s7', 'storage', 'هارد اکسترنال 2TB', 'WD', 3800000, 0, 11, { kind: 'HDD اکسترنال', size: 2000 }),
+
+    /* ---------- Cooler ---------- */
+    P('k1', 'cooler', 'AG400 (هوایی)', 'DeepCool', 1100000, 0, 15, { ctype: 'هوایی', sockets: ALL, maxTdp: 220 }),
+    P('k2', 'cooler', 'Hyper 212', 'Cooler Master', 1300000, 0, 12, { ctype: 'هوایی', sockets: ALL, maxTdp: 150 }),
+    P('k3', 'cooler', 'Peerless Assassin 120', 'Thermalright', 1900000, 0, 9, { ctype: 'هوایی', sockets: ALL, maxTdp: 245 }),
+    P('k4', 'cooler', 'NH-D15', 'Noctua', 4800000, 0, 5, { ctype: 'هوایی', sockets: ALL, maxTdp: 260 }),
+    P('k5', 'cooler', 'LS520 AIO 240mm', 'DeepCool', 5500000, 8, 6, { ctype: 'مایع', sockets: ALL, maxTdp: 300 }),
+    P('k6', 'cooler', 'iCUE H150i AIO 360mm', 'Corsair', 9000000, 0, 4, { ctype: 'مایع', sockets: ALL, maxTdp: 350 }),
+
+    /* ---------- Decorative ---------- */
+    P('d1', 'deco', 'پک ۳ فن ARGB', 'Lian Li', 1400000, 0, 12, { dtype: 'فن RGB' }),
+    P('d2', 'deco', 'نوار LED آدرس‌پذیر', 'Corsair', 600000, 0, 20, { dtype: 'نوار LED' }),
+    P('d3', 'deco', 'نگهدارنده کارت گرافیک', 'Cooler Master', 450000, 0, 15, { dtype: 'براکت GPU' }),
+    P('d4', 'deco', 'کیت نصب عمودی GPU', 'Lian Li', 1800000, 5, 6, { dtype: 'کیت Vertical' }),
+    P('d5', 'deco', 'کابل‌های سفارشی Sleeved', 'CableMod', 900000, 0, 10, { dtype: 'کابل سفارشی' }),
+
+    /* ---------- Case ---------- */
+    P('x1', 'case', 'MasterBox Q300L', 'Cooler Master', 2300000, 0, 10, { forms: 'mATX,ITX', maxGpu: 360 }),
+    P('x2', 'case', 'H510', 'NZXT', 4200000, 0, 8, { forms: 'ATX,mATX,ITX', maxGpu: 381 }),
+    P('x3', 'case', '4000D Airflow', 'Corsair', 5800000, 6, 9, { forms: 'ATX,mATX,ITX', maxGpu: 360 }),
+    P('x4', 'case', 'Air 903 Max', 'Montech', 5000000, 0, 7, { forms: 'ATX,mATX,ITX', maxGpu: 400 }),
+    P('x5', 'case', 'Lancool 216', 'Lian Li', 6800000, 0, 6, { forms: 'ATX,mATX,ITX', maxGpu: 392 }),
+    P('x6', 'case', 'NR200P (کوچک)', 'Cooler Master', 5500000, 0, 5, { forms: 'ITX', maxGpu: 330 }),
+    P('x7', 'case', 'North', 'Fractal', 9500000, 0, 4, { forms: 'ATX,mATX,ITX', maxGpu: 355 }),
+
+    /* ---------- PSU ---------- */
+    P('p1', 'psu', 'پاور 450W', 'Green', 1400000, 0, 15, { watt: 450, rating: '80+ White' }),
+    P('p2', 'psu', 'پاور 550W', 'Corsair', 1900000, 0, 12, { watt: 550, rating: '80+ Bronze' }),
+    P('p3', 'psu', 'پاور 650W', 'Cooler Master', 2600000, 0, 12, { watt: 650, rating: '80+ Bronze' }),
+    P('p4', 'psu', 'پاور 750W', 'MSI', 3800000, 0, 10, { watt: 750, rating: '80+ Gold' }),
+    P('p5', 'psu', 'پاور 850W', 'Corsair', 5200000, 5, 8, { watt: 850, rating: '80+ Gold' }),
+    P('p6', 'psu', 'پاور 1000W', 'Seasonic', 8000000, 0, 5, { watt: 1000, rating: '80+ Gold' }),
+    P('p7', 'psu', 'پاور 1200W', 'ASUS', 11500000, 0, 3, { watt: 1200, rating: '80+ Platinum' }),
+
+    /* ---------- Peripherals ---------- */
+    P('j1', 'periph', 'کیبورد مکانیکال K70', 'Corsair', 4800000, 10, 10, { ptype: 'کیبورد', detail: 'سوییچ Red، RGB' }),
+    P('j2', 'periph', 'کیبورد ۷۵٪ Keychron', 'Keychron', 5600000, 0, 7, { ptype: 'کیبورد', detail: 'بی‌سیم، Hot-swap' }),
+    P('j3', 'periph', 'ماوس G502', 'Logitech', 2200000, 0, 14, { ptype: 'ماوس', detail: '25600 DPI، سیم‌دار' }),
+    P('j4', 'periph', 'ماوس سبک Viper', 'Razer', 3900000, 8, 9, { ptype: 'ماوس', detail: '58 گرم، بی‌سیم' }),
+    P('j5', 'periph', 'مانیتور 27 اینچ 165Hz', 'LG', 14500000, 0, 6, { ptype: 'مانیتور', detail: 'QHD، IPS، 1ms' }),
+    P('j6', 'periph', 'مانیتور 24 اینچ 144Hz', 'AOC', 7800000, 5, 9, { ptype: 'مانیتور', detail: 'FHD، VA' }),
+    P('j7', 'periph', 'مانیتور 34 اینچ اولتراواید', 'Samsung', 26000000, 0, 3, { ptype: 'مانیتور', detail: 'WQHD، 165Hz، منحنی' }),
+    P('j8', 'periph', 'هدست HyperX Cloud II', 'HyperX', 3300000, 0, 11, { ptype: 'هدست', detail: '7.1 مجازی' }),
+    P('j9', 'periph', 'وب‌کم C920', 'Logitech', 2400000, 0, 8, { ptype: 'وب‌کم', detail: 'Full HD 1080p' }),
+    P('j10', 'periph', 'پد ماوس بزرگ', 'SteelSeries', 700000, 0, 25, { ptype: 'پد ماوس', detail: '900×400mm' }),
+
+    /* ---------- Network ---------- */
+    P('n1', 'net', 'روتر AX3000 Wi-Fi 6', 'TP-Link', 4200000, 0, 12, { ntype: 'مودم/روتر', detail: 'Wi-Fi 6، دو باند' }),
+    P('n2', 'net', 'روتر Wi-Fi 7 BE9300', 'ASUS', 14500000, 6, 4, { ntype: 'مودم/روتر', detail: 'Wi-Fi 7، سه باند' }),
+    P('n3', 'net', 'سوییچ 8 پورت گیگابیت', 'TP-Link', 1100000, 0, 20, { ntype: 'سوییچ', detail: '8×1Gbps' }),
+    P('n4', 'net', 'سوییچ 16 پورت مدیریتی', 'D-Link', 4800000, 0, 6, { ntype: 'سوییچ', detail: '16×1Gbps، Layer2' }),
+    P('n5', 'net', 'کارت شبکه PCIe Wi-Fi 6E', 'Gigabyte', 1500000, 0, 14, { ntype: 'کارت شبکه', detail: 'Wi-Fi 6E + بلوتوث' }),
+    P('n6', 'net', 'کارت شبکه 2.5G', 'TP-Link', 900000, 10, 10, { ntype: 'کارت شبکه', detail: 'PCIe، 2.5Gbps' }),
+    P('n7', 'net', 'اکسس‌پوینت سقفی', 'Ubiquiti', 6200000, 0, 5, { ntype: 'اکسس‌پوینت', detail: 'Wi-Fi 6، PoE' }),
+    P('n8', 'net', 'کابل شبکه Cat6 (۲۰ متر)', 'Dnet', 350000, 0, 40, { ntype: 'کابل شبکه', detail: 'Cat6، شیلدار' }),
+    P('n9', 'net', 'رپیتر Mesh', 'Xiaomi', 1800000, 0, 9, { ntype: 'تقویت‌کننده', detail: 'AX1500' })
+  ];
+
+  window.ERFAN_DEFAULTS = {
+    version: 1,
+    settings: { storeName: 'Erfan.', assemblyFee: 1500000, globalSale: 0, phone: '021-00000000' },
+    categories, specSchema, products,
+    coupons: [
+      { code: 'ERFAN10', percent: 10, active: true },
+      { code: 'WELCOME5', percent: 5, active: true }
+    ],
+    orders: []
+  };
+})();
+
+</script>
+  <script>
+/* =====================================================
+   Erfan. — لایه داده (localStorage) + توابع کمکی مشترک
+   بین سایت و پنل ادمین
+   ===================================================== */
+const Store = (() => {
+  const KEY = 'erfan_db_v1';
+  let mem = null;
+  const clone = (o) => JSON.parse(JSON.stringify(o));
+
+  function load() {
+    let raw = null;
+    try { raw = localStorage.getItem(KEY); } catch (e) {}
+    mem = null;
+    if (raw) { try { mem = JSON.parse(raw); } catch (e) { mem = null; } }
+    if (!mem) { mem = clone(ERFAN_DEFAULTS); save(); }
+    return mem;
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) {} }
+  function reset() { mem = clone(ERFAN_DEFAULTS); save(); return mem; }
+  function replace(obj) { mem = obj; save(); }
+
+  const db = () => mem || load();
+  const cat = (id) => db().categories.find((c) => c.id === id);
+  const product = (id) => db().products.find((p) => p.id === id);
+
+  /* قیمت و تخفیف: بیشترِ «تخفیف کالا» و «تخفیف سراسری» اعمال می‌شود */
+  const discountPct = (p) => Math.min(90, Math.max(Number(p.discount) || 0, Number(db().settings.globalSale) || 0));
+  const finalPrice = (p) => Math.round((p.price * (1 - discountPct(p) / 100)) / 1000) * 1000;
+
+  const nf = new Intl.NumberFormat('fa-IR');
+  const fmt = (n) => nf.format(Math.round(n));
+  const toman = (n) => nf.format(Math.round(n)) + ' تومان';
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+  function nextId(prefix) {
+    let i = db().products.length + 1;
+    while (db().products.some((p) => p.id === prefix + i)) i++;
+    return prefix + i;
+  }
+
+  return { load, save, reset, replace, get db() { return db(); }, cat, product, discountPct, finalPrice, fmt, toman, esc, nextId };
+})();
+
+</script>
+  <script>
+/* =====================================================
+   Erfan. — منطق اصلی سایت: روتر، لیست کالا، سبد خرید، سفارش
+   (اسمبل هوشمند در assembly.js)
+   ===================================================== */
+const App = (() => {
+  const { esc, toman, fmt, finalPrice, discountPct } = Store;
+  const $ = (s, r = document) => r.querySelector(s);
+  const app = $('#app');
+  const routes = {};
+  const CK = 'erfan_cart', KK = 'erfan_coupon';
+  let cartMem = [], couponMem = '';
+
+  /* ---------- Toast & Modal ---------- */
+  function toast(msg, err) {
+    const t = document.createElement('div');
+    t.className = 'toast' + (err ? ' err' : '');
+    t.textContent = msg;
+    $('#toasts').appendChild(t);
+    setTimeout(() => t.remove(), 2600);
+  }
+  function modal(html) {
+    const o = document.createElement('div');
+    o.className = 'overlay';
+    o.innerHTML = `<div class="modal"><button class="close" aria-label="بستن">×</button>${html}</div>`;
+    o.addEventListener('click', (e) => { if (e.target === o || e.target.classList.contains('close')) o.remove(); });
+    document.body.appendChild(o);
+    return o;
+  }
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('.overlay').forEach((o) => o.remove()); });
+
+  /* ---------- Cart (localStorage) ---------- */
+  const Cart = {
+    get() { try { return JSON.parse(localStorage.getItem(CK)) || []; } catch (e) { return cartMem; } },
+    set(a) { cartMem = a; try { localStorage.setItem(CK, JSON.stringify(a)); } catch (e) {} badge(); },
+    add(id, qty = 1) {
+      const a = this.get();
+      const it = a.find((x) => x.id === id);
+      if (id === 'ASM_FEE') { if (!it) a.push({ id, qty: 1 }); this.set(a); return true; }
+      const p = Store.product(id);
+      if (!p) return false;
+      const have = it ? it.qty : 0;
+      if (have + qty > p.stock) { toast('موجودی این کالا کافی نیست', true); return false; }
+      if (it) it.qty += qty; else a.push({ id, qty });
+      this.set(a);
+      return true;
+    },
+    clear() { this.set([]); },
+    count() { return this.get().reduce((s, x) => s + (x.id === 'ASM_FEE' ? 0 : x.qty), 0); }
+  };
+  function badge() { const el = $('#cartCount'); if (el) el.textContent = fmt(Cart.count()); }
+  const getCoupon = () => { try { return localStorage.getItem(KK) || ''; } catch (e) { return couponMem; } };
+  const setCoupon = (c) => { couponMem = c; try { localStorage.setItem(KK, c); } catch (e) {} };
+
+  /* ---------- Helpers ---------- */
+  function summary(p) {
+    const s = p.spec || {};
+    switch (p.cat) {
+      case 'cpu': return `${s.socket} • ${s.cores} هسته • ${s.tdp}W`;
+      case 'gpu': return `${s.vram}GB • ${s.tdp}W • ${s.length}mm`;
+      case 'ram': return `${s.type} • ${s.size}GB • ${s.speed}MHz`;
+      case 'mb': return `${s.socket} • ${s.ramType} • ${s.form}`;
+      case 'storage': return `${s.kind} • ${s.size >= 1000 ? s.size / 1000 + 'TB' : s.size + 'GB'}`;
+      case 'cooler': return `${s.ctype} • تا ${s.maxTdp}W`;
+      case 'deco': return s.dtype || '';
+      case 'case': return `${s.forms} • GPU تا ${s.maxGpu}mm`;
+      case 'psu': return `${s.watt}W • ${s.rating}`;
+      case 'periph': return `${s.ptype} • ${s.detail}`;
+      case 'net': return `${s.ntype} • ${s.detail}`;
+      default: return '';
+    }
+  }
+
+  function priceHtml(p) {
+    const d = discountPct(p);
+    return `<div class="price-box">${d ? `<div class="old">${toman(p.price)}</div>` : ''}<div class="price">${fmt(finalPrice(p))} <small>تومان</small></div></div>`;
+  }
+
+  function card(p) {
+    const c = Store.cat(p.cat);
+    const d = discountPct(p);
+    const out = p.stock <= 0;
+    return `<article class="card">
+      <div class="thumb">${p.img ? `<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">` : c.icon}
+        ${out ? '<span class="badge out">ناموجود</span>' : d ? `<span class="badge">٪${fmt(d)} تخفیف</span>` : ''}</div>
+      <div class="body">
+        <div class="pbrand">${esc(p.brand)}</div>
+        <div class="pname">${esc(p.name)}</div>
+        <div class="pspec">${esc(summary(p))}</div>
+        ${priceHtml(p)}
+        <div class="actions">
+          <button class="btn btn-primary btn-sm" data-add="${p.id}" ${out ? 'disabled' : ''}>افزودن به سبد</button>
+          <button class="btn btn-ghost btn-sm" data-detail="${p.id}">جزئیات</button>
+        </div>
+      </div></article>`;
+  }
+
+  function detailModal(id) {
+    const p = Store.product(id);
+    if (!p) return;
+    const schema = Store.db.specSchema[p.cat] || [];
+    const rows = schema.map((f) => `<tr><td>${esc(f.label)}</td><td dir="auto">${esc(p.spec[f.k] ?? '—')}</td></tr>`).join('');
+    modal(`<h3 dir="auto">${esc(p.name)}</h3>
+      <p class="muted" style="margin-bottom:12px">${esc(Store.cat(p.cat).name)} • برند ${esc(p.brand)} • موجودی: ${fmt(p.stock)}</p>
+      <table class="spec-table"><tbody>${rows}</tbody></table>
+      <div class="row" style="justify-content:space-between;margin-top:18px">${priceHtml(p)}
+      <button class="btn btn-primary" data-add="${p.id}" ${p.stock <= 0 ? 'disabled' : ''}>افزودن به سبد</button></div>`);
+  }
+
+  /* ---------- Listing با فیلتر و مرتب‌سازی ---------- */
+  const listState = {};
+  function listing(cfg) {
+    const db = Store.db;
+    const st = (listState[cfg.key] = listState[cfg.key] || { q: '', brand: '', sort: 'default', max: '', stock: false });
+    let base = db.products.filter((p) => cfg.cats.includes(p.cat));
+    if (cfg.discounted) base = base.filter((p) => discountPct(p) > 0);
+    const brands = [...new Set(base.map((p) => p.brand))].sort();
+    const tabs = [{ id: 'all', label: 'همه' }, ...cfg.tabs];
+    const sel = cfg.tab || 'all';
+    const tabHtml = tabs.map((t) => `<a class="tab ${t.id === sel ? 'active' : ''}" href="${cfg.base}${t.id === 'all' ? '' : '/' + encodeURIComponent(t.id)}">${esc(t.label)}</a>`).join('');
+
+    app.innerHTML = `
+      <div class="section-title"><h2>${cfg.title}</h2><span class="kicker">${cfg.kicker || ''}</span></div>
+      ${cfg.intro || ''}
+      <div class="tabs">${tabHtml}</div>
+      <div class="filters">
+        <div><label>جستجو</label><input id="fq" placeholder="نام یا برند…" value="${esc(st.q)}"></div>
+        <div><label>برند</label><select id="fb"><option value="">همه برندها</option>${brands.map((b) => `<option ${st.brand === b ? 'selected' : ''}>${esc(b)}</option>`).join('')}</select></div>
+        <div><label>مرتب‌سازی</label><select id="fs">
+          ${[['default', 'پیش‌فرض'], ['asc', 'ارزان‌ترین'], ['desc', 'گران‌ترین'], ['disc', 'بیشترین تخفیف']].map(([v, l]) => `<option value="${v}" ${st.sort === v ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
+        <div><label>سقف قیمت (تومان)</label><input id="fm" type="number" min="0" placeholder="مثلاً 20000000" value="${esc(st.max)}"></div>
+        <label style="display:flex;gap:6px;align-items:center;margin:0 0 10px"><input id="fi" type="checkbox" ${st.stock ? 'checked' : ''}> فقط موجود</label>
+      </div>
+      <div id="results"></div>`;
+
+    function paint() {
+      let items = base.filter((p) => sel === 'all' || cfg.tabFn(p) === sel);
+      const q = st.q.trim().toLowerCase();
+      if (q) items = items.filter((p) => (p.name + ' ' + p.brand).toLowerCase().includes(q));
+      if (st.brand) items = items.filter((p) => p.brand === st.brand);
+      if (st.max) items = items.filter((p) => finalPrice(p) <= Number(st.max));
+      if (st.stock) items = items.filter((p) => p.stock > 0);
+      if (st.sort === 'asc') items.sort((a, b) => finalPrice(a) - finalPrice(b));
+      if (st.sort === 'desc') items.sort((a, b) => finalPrice(b) - finalPrice(a));
+      if (st.sort === 'disc') items.sort((a, b) => discountPct(b) - discountPct(a));
+      $('#results').innerHTML = items.length
+        ? `<p class="muted" style="margin-bottom:10px">${fmt(items.length)} کالا</p><div class="grid cards">${items.map(card).join('')}</div>`
+        : '<div class="empty">کالایی با این فیلترها پیدا نشد.</div>';
+    }
+    const bind = (id, key, ev = 'input', get = (e) => e.target.value) => $(id).addEventListener(ev, (e) => { st[key] = get(e); paint(); });
+    bind('#fq', 'q'); bind('#fb', 'brand', 'change'); bind('#fs', 'sort', 'change'); bind('#fm', 'max');
+    bind('#fi', 'stock', 'change', (e) => e.target.checked);
+    paint();
+  }
+
+  /* ---------- Routes ---------- */
+  routes[''] = () => {
+    const db = Store.db;
+    const tiles = db.categories.map((c) => {
+      const href = c.group === 'parts' ? '#/parts/' + c.id : '#/' + c.group;
+      const n = db.products.filter((p) => p.cat === c.id).length;
+      return `<a class="tile" href="${href}"><span class="ic">${c.icon}</span><b>${c.name}</b><small>${fmt(n)} کالا</small></a>`;
+    }).join('');
+    const hot = db.products.filter((p) => discountPct(p) > 0 && p.stock > 0).sort((a, b) => discountPct(b) - discountPct(a)).slice(0, 4);
+    app.innerHTML = `
+      <section class="hero">
+        <div class="glyph">🖥️</div>
+        <h1>سیستم رویایی‌ات را <b>با Erfan.</b> بساز</h1>
+        <div class="tag">هر قطعه، دقیقاً سر جای خودش</div>
+        <p>از پردازنده و کارت گرافیک تا تجهیزات شبکه؛ یا فقط بودجه‌ات را بگو تا «اسمبل هوشمند» یک سیستم کاملاً سازگار بچیند و قیمت نهایی را همان لحظه ببینی.</p>
+        <div class="row"><a class="btn btn-primary" href="#/assembly">⚡ اسمبل هوشمند</a><a class="btn btn-ghost" href="#/parts">مشاهده قطعات</a></div>
+      </section>
+      <div class="section-title"><h2>دسته‌بندی‌ها</h2><span class="kicker">هرچه لازم داری</span></div>
+      <div class="grid cat-tiles">${tiles}<a class="tile" href="#/assembly"><span class="ic">🤖</span><b>اسمبل هوشمند</b><small>سیستم کامل با بودجه تو</small></a></div>
+      <div class="section-title"><h2>داغ‌ترین تخفیف‌ها</h2><a class="kicker" href="#/discounts">همه تخفیف‌ها ←</a></div>
+      <div class="grid cards">${hot.map(card).join('') || '<div class="empty">فعلاً تخفیفی نیست.</div>'}</div>`;
+  };
+
+  routes.parts = (arg) => {
+    const cats = Store.db.categories.filter((c) => c.group === 'parts');
+    listing({ key: 'parts', title: 'قطعات کامپیوتر', kicker: 'CPU تا کیس', cats: cats.map((c) => c.id), base: '#/parts', tab: arg,
+      tabs: cats.map((c) => ({ id: c.id, label: c.icon + ' ' + c.name })), tabFn: (p) => p.cat });
+  };
+  routes.periph = (arg) => listing({ key: 'periph', title: 'تجهیزات جانبی', kicker: 'کیبورد، ماوس، مانیتور و…', cats: ['periph'], base: '#/periph', tab: arg,
+    tabs: Store.db.specSchema.periph[0].options.map((o) => ({ id: o, label: o })), tabFn: (p) => p.spec.ptype });
+  routes.net = (arg) => listing({ key: 'net', title: 'تجهیزات شبکه', kicker: 'اتصال پایدار', cats: ['net'], base: '#/net', tab: arg,
+    tabs: Store.db.specSchema.net[0].options.map((o) => ({ id: o, label: o })), tabFn: (p) => p.spec.ntype });
+  routes.discounts = (arg) => {
+    const db = Store.db;
+    const g = Number(db.settings.globalSale) || 0;
+    const codes = db.coupons.filter((c) => c.active).map((c) => `<span class="tab active" style="cursor:default">${esc(c.code)} ← ٪${fmt(c.percent)}</span>`).join(' ');
+    const intro = `${g ? `<div class="notice" style="margin-bottom:14px">🎉 جشنواره فعال: روی همه کالاها حداقل ٪${fmt(g)} تخفیف</div>` : ''}
+      <div class="panel" style="margin-bottom:18px"><span class="kicker">کد تخفیف</span> <span class="muted">— در سبد خرید وارد کنید:</span><div class="row" style="margin-top:8px">${codes || '<span class="muted">فعلاً کدی فعال نیست</span>'}</div></div>`;
+    listing({ key: 'disc', title: 'تخفیف‌ها', kicker: 'فرصت‌های محدود', cats: db.categories.map((c) => c.id), discounted: true, intro, base: '#/discounts', tab: arg,
+      tabs: db.categories.map((c) => ({ id: c.id, label: c.icon + ' ' + c.name })), tabFn: (p) => p.cat });
+  };
+
+  /* ---------- Cart view ---------- */
+  function resolve(it) {
+    const db = Store.db;
+    if (it.id === 'ASM_FEE') return { id: it.id, name: 'هزینه اسمبل، تست و نصب سیستم', unit: Number(db.settings.assemblyFee) || 0, qty: 1, icon: '🛠️', fee: true };
+    const p = Store.product(it.id);
+    if (!p) return null;
+    return { id: p.id, name: p.name, unit: finalPrice(p), qty: Math.min(it.qty, Math.max(p.stock, 0)), icon: Store.cat(p.cat).icon, stock: p.stock };
+  }
+  function cartTotals(lines) {
+    const sub = lines.reduce((s, l) => s + l.unit * l.qty, 0);
+    const base = lines.filter((l) => !l.fee).reduce((s, l) => s + l.unit * l.qty, 0);
+    const cp = Store.db.coupons.find((c) => c.active && c.code.toUpperCase() === getCoupon().toUpperCase());
+    const off = cp ? Math.round((base * cp.percent) / 100 / 1000) * 1000 : 0;
+    return { sub, off, cp, total: sub - off };
+  }
+
+  routes.cart = () => {
+    const lines = Cart.get().map(resolve).filter((l) => l && l.qty > 0);
+    if (!lines.length) { app.innerHTML = '<div class="empty"><h2>سبد خرید خالی است</h2><p style="margin:10px 0 18px">برای شروع، سیستم خودت را بساز!</p><a class="btn btn-primary" href="#/assembly">اسمبل هوشمند</a></div>'; return; }
+    const t = cartTotals(lines);
+    app.innerHTML = `<div class="section-title"><h2>سبد خرید</h2><span class="kicker">تکمیل سفارش</span></div>
+      <div class="cart-layout">
+        <div class="panel table-wrap"><table>
+          <thead><tr><th></th><th>کالا</th><th>قیمت واحد</th><th>تعداد</th><th>جمع</th><th></th></tr></thead>
+          <tbody>${lines.map((l) => `<tr><td style="font-size:1.6rem">${l.icon}</td><td dir="auto">${esc(l.name)}</td><td>${fmt(l.unit)}</td>
+            <td>${l.fee ? '۱' : `<span class="qty"><button data-q="${l.id}" data-d="-1">−</button>${fmt(l.qty)}<button data-q="${l.id}" data-d="1">+</button></span>`}</td>
+            <td><b>${fmt(l.unit * l.qty)}</b></td><td><button class="btn btn-danger btn-sm" data-rm="${l.id}">حذف</button></td></tr>`).join('')}</tbody></table></div>
+        <aside class="panel">
+          <h3>خلاصه سفارش</h3>
+          <div class="field" style="margin-top:12px"><label>کد تخفیف</label><div class="row" style="flex-wrap:nowrap"><input id="cpn" value="${esc(getCoupon())}" placeholder="مثلاً ERFAN10"><button class="btn btn-ghost" id="cpnBtn">اعمال</button></div>
+            ${getCoupon() ? (t.cp ? `<small class="good">کد ${esc(t.cp.code)} (٪${fmt(t.cp.percent)}) اعمال شد</small>` : '<small class="bad">کد نامعتبر است</small>') : ''}</div>
+          <div class="totals">
+            <div class="line"><span>جمع کالاها</span><span>${toman(t.sub)}</span></div>
+            <div class="line"><span>تخفیف کد</span><span class="good">− ${toman(t.off)}</span></div>
+            <div class="line grand"><span>مبلغ نهایی</span><span>${toman(t.total)}</span></div>
+          </div>
+          <hr style="border:0;border-top:1px solid var(--border);margin:18px 0">
+          <form id="checkout">
+            <div class="field"><label>نام و نام خانوادگی</label><input name="name" required></div>
+            <div class="field"><label>شماره تماس</label><input name="phone" required inputmode="tel" pattern="[0-9۰-۹]{10,11}" title="شماره ۱۰ یا ۱۱ رقمی"></div>
+            <div class="field"><label>آدرس</label><textarea name="address" rows="2" required></textarea></div>
+            <button class="btn btn-primary" style="width:100%">ثبت سفارش</button>
+          </form>
+        </aside></div>`;
+    $('#cpnBtn').onclick = () => { setCoupon($('#cpn').value.trim()); routes.cart(); };
+    $('#checkout').onsubmit = (e) => {
+      e.preventDefault();
+      const f = new FormData(e.target);
+      const db = Store.db;
+      const items = lines.map((l) => ({ id: l.id, name: l.name, qty: l.qty, unit: l.unit }));
+      /* بررسی مجدد موجودی و کسر از انبار */
+      for (const l of lines) if (!l.fee && Store.product(l.id).stock < l.qty) return toast('موجودی «' + l.name + '» کافی نیست', true);
+      lines.forEach((l) => { if (!l.fee) Store.product(l.id).stock -= l.qty; });
+      const order = { id: 'ORD-' + Date.now().toString(36).toUpperCase(), date: new Date().toISOString(),
+        customer: { name: f.get('name'), phone: f.get('phone'), address: f.get('address') },
+        items, subtotal: t.sub, coupon: t.cp ? t.cp.code : '', couponDiscount: t.off, total: t.total, status: 'جدید' };
+      db.orders.unshift(order);
+      Store.save();
+      Cart.clear(); setCoupon('');
+      app.innerHTML = `<div class="empty"><div style="font-size:4rem">✅</div><h2>سفارش ثبت شد</h2>
+        <p style="margin:10px 0">کد پیگیری: <b dir="ltr">${order.id}</b></p><p>مبلغ نهایی: <b class="good">${toman(order.total)}</b></p>
+        <a class="btn btn-primary" style="margin-top:18px" href="#/">بازگشت به فروشگاه</a></div>`;
+    };
+  };
+
+  /* ---------- Router ---------- */
+  function route() {
+    Store.load(); /* همگام با تغییرات پنل ادمین */
+    const h = location.hash.replace(/^#\/?/, '');
+    const [name, arg] = h.split('/');
+    const isAdmin = name === 'admin';
+    $('#shop').hidden = isAdmin;
+    $('#adminRoot').hidden = !isAdmin;
+    if (isAdmin) { window.AdminApp.start(); window.scrollTo(0, 0); return; }
+    const fn = routes[name || ''] || routes[''];
+    fn(arg ? decodeURIComponent(arg) : undefined);
+    document.querySelectorAll('#nav a').forEach((a) => a.classList.toggle('active', a.dataset.r === (name || '')));
+    $('#footPhone').textContent = 'تلفن پشتیبانی: ' + Store.db.settings.phone;
+    badge();
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route);
+  window.addEventListener('DOMContentLoaded', route);
+
+  /* ---------- Global events ---------- */
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-add],[data-detail],[data-q],[data-rm]');
+    if (!t) return;
+    if (t.dataset.add) { if (Cart.add(t.dataset.add)) toast('به سبد خرید اضافه شد ✔'); }
+    else if (t.dataset.detail) detailModal(t.dataset.detail);
+    else if (t.dataset.q) {
+      const a = Cart.get(); const it = a.find((x) => x.id === t.dataset.q); const p = Store.product(t.dataset.q);
+      if (!it) return;
+      const n = it.qty + Number(t.dataset.d);
+      if (n < 1) return;
+      if (p && n > p.stock) return toast('موجودی کافی نیست', true);
+      it.qty = n; Cart.set(a); routes.cart();
+    } else if (t.dataset.rm) { Cart.set(Cart.get().filter((x) => x.id !== t.dataset.rm)); routes.cart(); }
+  });
+
+  return { routes, Cart, toast, modal, summary, card, route };
+})();
+
+</script>
+  <script>
+/* =====================================================
+   Erfan. — اسمبل هوشمند
+   ورودی: بودجه + هدف استفاده (+ ترجیحات)
+   خروجی: سیستم کامل سازگار + قیمت نهایی (با تخفیف‌ها + هزینه اسمبل)
+   ===================================================== */
+(() => {
+  const { esc, toman, fmt, finalPrice: fp } = Store;
+  const $ = (s) => document.querySelector(s);
+  const app = $('#app');
+
+  /* وزن اهمیت هر قطعه برای هر هدف + حداقل رم */
+  const PURPOSES = {
+    gaming: { label: 'گیمینگ', c: 0.9, g: 1.8, r: 0.25, s: 0.15, minRam: 16 },
+    work:   { label: 'کاری و اداری', c: 1.5, g: 0.15, r: 0.5, s: 0.3, minRam: 16 },
+    render: { label: 'طراحی، رندر و برنامه‌نویسی', c: 1.4, g: 1.2, r: 0.6, s: 0.25, minRam: 32 },
+    budget: { label: 'اقتصادی (کمترین هزینه)', c: 1, g: 1, r: 0.2, s: 0.1, minRam: 16 }
+  };
+  const ORDER = ['cpu', 'gpu', 'mb', 'ram', 'storage', 'cooler', 'case', 'psu', 'deco'];
+
+  /* ---------- توابع سازگاری ---------- */
+  const list = (c) => Store.db.products.filter((p) => p.cat === c && p.stock > 0);
+  const internal = (p) => !/اکسترنال/.test(p.spec.kind);
+  const csv = (s) => String(s || '').split(',').map((x) => x.trim());
+  const needWatt = (cpu, gpu) => Math.ceil(((Number(cpu.spec.tdp) + (gpu ? Number(gpu.spec.tdp) : 0) + 100) * 1.3) / 50) * 50;
+  const coolOk = (k, cpu) => csv(k.spec.sockets).includes(cpu.spec.socket) && Number(k.spec.maxTdp) >= Number(cpu.spec.tdp);
+  const caseOk = (c, mb, gpu) => csv(c.spec.forms).includes(mb.spec.form) && (!gpu || Number(c.spec.maxGpu) >= Number(gpu.spec.length));
+  const sum = (b) => Object.values(b).filter(Boolean).reduce((s, p) => s + fp(p), 0);
+  const cheapest = (arr) => arr.reduce((a, b) => (!a || fp(b) < fp(a) ? b : a), null);
+
+  /* ---------- موتور انتخاب خودکار ---------- */
+  function autoBuild(o) {
+    const W = PURPOSES[o.purpose];
+    const fee = Number(Store.db.settings.assemblyFee) || 0;
+    const avail = o.budget - fee;
+    const L = {};
+    ORDER.forEach((c) => (L[c] = list(c)));
+    L.storage = L.storage.filter(internal);
+    const gpus = L.gpu.slice();
+    if (o.purpose === 'work') gpus.push(null); /* برای کار اداری گرافیک داخلی کافی است */
+
+    let best = null, bestScore = -Infinity, minNeeded = Infinity;
+    for (const cpu of L.cpu) {
+      if (o.brand !== 'any' && cpu.brand !== o.brand) continue;
+      for (const gpu of gpus) {
+        if (!gpu && cpu.spec.igpu !== 'بله') continue;
+        for (const mb of L.mb) {
+          if (mb.spec.socket !== cpu.spec.socket) continue;
+          if (o.size === 'ITX' && mb.spec.form !== 'ITX') continue;
+          if (o.size === 'compact' && mb.spec.form === 'ATX') continue;
+          const need = needWatt(cpu, gpu);
+          const ramO = L.ram.filter((r) => r.spec.type === mb.spec.ramType && r.spec.size >= W.minRam);
+          const stO = L.storage.filter((s) => s.spec.size >= 500 && s.spec.kind !== 'HDD');
+          const coO = L.cooler.filter((k) => coolOk(k, cpu));
+          const caO = L.case.filter((c) => caseOk(c, mb, gpu));
+          const psO = L.psu.filter((p) => p.spec.watt >= need);
+          if (!ramO.length || !stO.length || !coO.length || !caO.length || !psO.length) continue;
+
+          const b = { cpu, gpu, mb, ram: cheapest(ramO), storage: cheapest(stO), cooler: cheapest(coO), case: cheapest(caO), psu: cheapest(psO), deco: null };
+          minNeeded = Math.min(minNeeded, sum(b) + fee);
+          if (sum(b) > avail) continue;
+
+          /* هزینه باقی‌مانده را به ترتیب اولویت صرف ارتقای رم، حافظه، پاور، خنک‌کننده و کیس می‌کنیم */
+          let rem = avail - sum(b);
+          const up = (key, opts, rank, cap) => {
+            const cur = b[key];
+            const room = fp(cur) + rem * cap;
+            const c = opts.filter((x) => fp(x) <= room).sort((x, y) => rank(y) - rank(x) || fp(x) - fp(y))[0];
+            if (c) { rem -= fp(c) - fp(cur); b[key] = c; }
+          };
+          const mbO = L.mb.filter((m) => m.spec.socket === mb.spec.socket && m.spec.ramType === mb.spec.ramType && m.spec.form === mb.spec.form);
+          up('mb', mbO, (m) => fp(m), 0.25);
+          up('ram', ramO, (r) => r.spec.size, 0.5);
+          up('storage', stO, (s) => s.spec.size + (s.spec.kind === 'NVMe SSD' ? 100 : 0), 0.5);
+          up('psu', psO, (p) => p.spec.watt, 0.25);
+          up('cooler', coO, (k) => k.spec.maxTdp, 0.4);
+          up('case', caO, (c) => fp(c), 0.5);
+          if (o.deco) {
+            const d = L.deco.filter((x) => fp(x) <= rem * 0.5).sort((x, y) => fp(y) - fp(x))[0];
+            if (d) b.deco = d;
+          }
+          const score = W.c * cpu.spec.score + W.g * (gpu ? gpu.spec.score : 8) +
+            W.r * 100 * Math.min(b.ram.spec.size, 64) / 64 + W.s * 100 * Math.min(b.storage.spec.size, 2000) / 2000 +
+            (sum(b) / avail) * 3 - (o.purpose === 'budget' ? sum(b) / avail * 120 : 0);
+          if (score > bestScore) { bestScore = score; best = b; }
+        }
+      }
+    }
+    return { build: best, minNeeded: isFinite(minNeeded) ? minNeeded : null };
+  }
+
+  /* ---------- گزینه‌های جایگزین برای هر ردیف (فقط سازگار) ---------- */
+  function altsFor(key, b) {
+    switch (key) {
+      case 'cpu': return list('cpu').filter((c) => c.spec.socket === b.mb.spec.socket && (b.gpu || c.spec.igpu === 'بله'));
+      case 'gpu': return list('gpu');
+      case 'mb': return list('mb').filter((m) => m.spec.socket === b.cpu.spec.socket && m.spec.ramType === b.ram.spec.type);
+      case 'ram': return list('ram').filter((r) => r.spec.type === b.mb.spec.ramType);
+      case 'storage': return list('storage').filter(internal);
+      case 'cooler': return list('cooler').filter((k) => csv(k.spec.sockets).includes(b.cpu.spec.socket));
+      case 'case': return list('case').filter((c) => csv(c.spec.forms).includes(b.mb.spec.form));
+      default: return list(key);
+    }
+  }
+  const optional = (key, b) => key === 'deco' || (key === 'gpu' && b.cpu.spec.igpu === 'بله');
+
+  function checks(b) {
+    const need = needWatt(b.cpu, b.gpu);
+    return [
+      [b.cpu.spec.socket === b.mb.spec.socket, `سوکت پردازنده و مادربرد یکسان است (${b.cpu.spec.socket})`, `ناسازگاری سوکت: CPU ${b.cpu.spec.socket} ≠ مادربرد ${b.mb.spec.socket}`],
+      [b.ram.spec.type === b.mb.spec.ramType, `رم ${b.ram.spec.type} با مادربرد سازگار است`, `ناسازگاری رم: ${b.ram.spec.type} روی مادربرد ${b.mb.spec.ramType}`],
+      [coolOk(b.cooler, b.cpu), `خنک‌کننده از سوکت و توان ${b.cpu.spec.tdp}W پردازنده پشتیبانی می‌کند`, 'خنک‌کننده با سوکت یا توان پردازنده سازگار نیست'],
+      [caseOk(b.case, b.mb, b.gpu), 'مادربرد و کارت گرافیک در کیس جا می‌شوند', 'مادربرد یا کارت گرافیک در کیس جا نمی‌شود'],
+      [b.psu.spec.watt >= need, `پاور ${b.psu.spec.watt}W ≥ توان موردنیاز تخمینی ${need}W`, `پاور ضعیف است (${b.psu.spec.watt}W < ${need}W)`],
+      [!!(b.gpu || b.cpu.spec.igpu === 'بله'), b.gpu ? 'کارت گرافیک مجزا دارد' : 'تصویر از گرافیک داخلی پردازنده تأمین می‌شود', 'سیستم خروجی تصویر ندارد']
+    ];
+  }
+
+  /* ---------- نمای صفحه ---------- */
+  let opts = { purpose: 'gaming', budget: 60000000, brand: 'any', size: 'any', deco: false };
+  let cur = null, minNeeded = null;
+
+  App.routes.assembly = () => {
+    app.innerHTML = `
+      <div class="section-title"><h2>اسمبل هوشمند</h2><span class="kicker">بودجه‌ات را بگو، بقیه با ما</span></div>
+      <div class="asm-layout">
+        <aside class="panel asm-form">
+          <div class="field"><label>هدف استفاده</label><select id="ap">${Object.entries(PURPOSES).map(([k, v]) => `<option value="${k}" ${opts.purpose === k ? 'selected' : ''}>${v.label}</option>`).join('')}</select></div>
+          <div class="field"><label>بودجه کل: <span class="budget-out" id="abOut"></span></label>
+            <input id="ab" type="range" min="20000000" max="300000000" step="1000000" value="${opts.budget}"></div>
+          <div class="field"><label>برند پردازنده</label><select id="abr"><option value="any">فرقی نمی‌کند</option><option value="AMD" ${opts.brand === 'AMD' ? 'selected' : ''}>AMD</option><option value="Intel" ${opts.brand === 'Intel' ? 'selected' : ''}>Intel</option></select></div>
+          <div class="field"><label>اندازه سیستم</label><select id="asz">
+            <option value="any">فرقی نمی‌کند</option><option value="compact" ${opts.size === 'compact' ? 'selected' : ''}>جمع‌وجور (mATX/ITX)</option><option value="ITX" ${opts.size === 'ITX' ? 'selected' : ''}>خیلی کوچک (ITX)</option></select></div>
+          <div class="field"><label style="display:flex;gap:8px;align-items:center;color:var(--text)"><input id="ad" type="checkbox" ${opts.deco ? 'checked' : ''}> افزودن قطعه تزئینی (در صورت بودجه)</label></div>
+          <button class="btn btn-primary" id="abuild" style="width:100%">⚡ بساز</button>
+          <p class="muted" style="margin-top:12px;font-size:.85rem">هزینه اسمبل و تست در قیمت نهایی لحاظ می‌شود. همه قطعات از نظر سوکت، رم، توان پاور و ابعاد کیس بررسی می‌شوند.</p>
+        </aside>
+        <section class="panel" id="asmResult"></section>
+      </div>`;
+    const out = () => ($('#abOut').textContent = toman(Number($('#ab').value)));
+    out();
+    $('#ab').addEventListener('input', out);
+    $('#abuild').onclick = () => {
+      opts = { purpose: $('#ap').value, budget: Number($('#ab').value), brand: $('#abr').value, size: $('#asz').value, deco: $('#ad').checked };
+      run();
+    };
+    run();
+  };
+
+  function run() {
+    const r = autoBuild(opts);
+    cur = r.build; minNeeded = r.minNeeded;
+    paint();
+  }
+
+  function paint() {
+    const box = $('#asmResult');
+    if (!cur) {
+      box.innerHTML = `<div class="notice">با این بودجه و ترجیحات، سیستم سازگاری پیدا نشد.${minNeeded ? `<br>حداقل بودجه موردنیاز برای این انتخاب‌ها حدود <b>${toman(minNeeded)}</b> است.` : '<br>ترجیحات (برند/اندازه) را آزاد کنید یا موجودی انبار را بررسی کنید.'}</div>`;
+      return;
+    }
+    const b = cur;
+    const fee = Number(Store.db.settings.assemblyFee) || 0;
+    const parts = sum(b);
+    const total = parts + fee;
+    const diff = opts.budget - total;
+    const rows = ORDER.map((k) => {
+      const c = Store.cat(k);
+      const opt = altsFor(k, b);
+      const sel = b[k];
+      return `<div class="asm-row">
+        <div class="cname"><i>${c.icon}</i>${c.name}</div>
+        <select data-k="${k}">
+          ${optional(k, b) ? `<option value="" ${!sel ? 'selected' : ''}>— بدون —</option>` : ''}
+          ${opt.map((p) => `<option value="${p.id}" ${sel && sel.id === p.id ? 'selected' : ''}>${esc(p.brand + ' ' + p.name)} — ${fmt(fp(p))}</option>`).join('')}
+        </select>
+        <div class="p">${sel ? fmt(fp(sel)) + ' <small class="muted">تومان</small>' : '—'}</div></div>`;
+    }).join('');
+    box.innerHTML = `
+      <h3 style="font-size:1.6rem">سیستم پیشنهادی برای «${PURPOSES[opts.purpose].label}»</h3>
+      <p class="muted">هر قطعه را می‌توانید از لیست تغییر دهید؛ قیمت و بررسی سازگاری لحظه‌ای به‌روز می‌شود.</p>
+      <div style="margin-top:8px">${rows}</div>
+      <div class="totals">
+        <div class="line"><span>جمع قطعات (با احتساب تخفیف‌ها)</span><span>${toman(parts)}</span></div>
+        <div class="line"><span>هزینه اسمبل، تست و نصب ویندوز</span><span>${toman(fee)}</span></div>
+        <div class="line grand"><span>قیمت نهایی سیستم</span><span>${toman(total)}</span></div>
+        <div class="line"><span class="muted">${diff >= 0 ? 'باقی‌مانده از بودجه' : 'بیشتر از بودجه'}</span><span class="${diff >= 0 ? 'good' : 'warn'}">${toman(Math.abs(diff))}</span></div>
+      </div>
+      <ul class="check-list">${checks(b).map(([ok, y, n]) => `<li class="${ok ? '' : 'no'}">${ok ? y : n}</li>`).join('')}</ul>
+      <div class="row" style="margin-top:18px"><button class="btn btn-primary" id="asmCart">🛒 افزودن کل سیستم به سبد</button><button class="btn btn-ghost" id="asmAgain">پیشنهاد دوباره</button></div>`;
+    box.querySelectorAll('select[data-k]').forEach((s) => (s.onchange = () => { cur[s.dataset.k] = Store.product(s.value) || null; paint(); }));
+    $('#asmAgain').onclick = run;
+    $('#asmCart').onclick = () => {
+      if (!checks(cur).every((c) => c[0]) && !confirm('برخی موارد سازگار نیستند. باز هم به سبد اضافه شود؟')) return;
+      for (const k of ORDER) if (cur[k] && !App.Cart.add(cur[k].id)) return;
+      App.Cart.add('ASM_FEE');
+      App.toast('سیستم کامل به سبد اضافه شد ✔');
+      location.hash = '#/cart';
+    };
+  }
+})();
+
+</script>
+  <script>
+/* =====================================================
+   Erfan. — پنل مدیریت
+   ورود: نام کاربری admin  /  رمز 1111
+   (احراز هویت سمت کلاینت است؛ توضیحات در ARCHITECTURE.md)
+   ===================================================== */
+(() => {
+  const ADMIN_USER = 'admin';
+  const ADMIN_PASS = '1111';
+  const SK = 'erfan_admin_session';
+  const { esc, toman, fmt, finalPrice, discountPct } = Store;
+  const $ = (s, r = document) => r.querySelector(s);
+  const root = $('#adminRoot');
+  let memAuth = false, tab = 'dash';
+  const S = { pq: '', pc: '' };
+
+  const authed = () => { try { return sessionStorage.getItem(SK) === '1'; } catch (e) { return memAuth; } };
+  const setAuth = (v) => { memAuth = v; try { v ? sessionStorage.setItem(SK, '1') : sessionStorage.removeItem(SK); } catch (e) {} };
+
+  function toast(msg, err) {
+    const t = document.createElement('div');
+    t.className = 'toast' + (err ? ' err' : '');
+    t.textContent = msg;
+    $('#toasts').appendChild(t);
+    setTimeout(() => t.remove(), 2600);
+  }
+  function modal(html) {
+    const o = document.createElement('div');
+    o.className = 'overlay';
+    o.innerHTML = `<div class="modal"><button class="close" aria-label="بستن">×</button>${html}</div>`;
+    o.addEventListener('click', (e) => { if (e.target === o || e.target.classList.contains('close')) o.remove(); });
+    document.body.appendChild(o);
+    return o;
+  }
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('.overlay').forEach((o) => o.remove()); });
+
+  /* ---------- Login ---------- */
+  function loginView() {
+    root.innerHTML = `<div class="login-wrap"><div class="panel login-box">
+      <div class="logo">Erfan<span>.</span></div>
+      <div class="kicker">پنل مدیریت</div>
+      <form id="lf">
+        <div class="field"><label>نام کاربری</label><input name="u" autocomplete="username" value="admin" required></div>
+        <div class="field"><label>رمز عبور</label><input name="p" type="password" autocomplete="current-password" autofocus required></div>
+        <button class="btn btn-primary" style="width:100%">ورود</button>
+        <p id="le" class="bad" style="margin-top:10px;min-height:1.5em"></p>
+      </form>
+      <a href="#/" class="muted">← بازگشت به فروشگاه</a></div></div>`;
+    $('#lf').onsubmit = (e) => {
+      e.preventDefault();
+      const f = new FormData(e.target);
+      if (f.get('u') === ADMIN_USER && f.get('p') === ADMIN_PASS) { setAuth(true); panel(); }
+      else $('#le').textContent = 'نام کاربری یا رمز عبور اشتباه است';
+    };
+  }
+
+  /* ---------- Layout ---------- */
+  const TABS = [['dash', '📊 داشبورد'], ['products', '📦 کالاها'], ['disc', '🏷️ تخفیف‌ها'], ['orders', '🧾 سفارش‌ها'], ['settings', '⚙️ تنظیمات']];
+  function panel() {
+    Store.load();
+    root.innerHTML = `<div class="adm">
+      <aside class="side"><div class="logo">Erfan<span>.</span></div><small>پنل مدیریت</small>
+        ${TABS.map(([k, l]) => `<button class="nav-i ${k === tab ? 'active' : ''}" data-tab="${k}">${l}</button>`).join('')}
+        <div class="grow"></div>
+        <a class="nav-i btn btn-ghost" href="#/" style="text-align:center">مشاهده سایت ↗</a>
+        <button class="nav-i" id="logout">خروج</button></aside>
+      <section class="content" id="tabc"></section></div>`;
+    root.querySelectorAll('[data-tab]').forEach((b) => (b.onclick = () => { tab = b.dataset.tab; panel(); }));
+    $('#logout').onclick = () => { setAuth(false); loginView(); };
+    ({ dash: tabDash, products: tabProducts, disc: tabDisc, orders: tabOrders, settings: tabSettings })[tab]();
+  }
+
+  /* ---------- Dashboard ---------- */
+  function tabDash() {
+    const db = Store.db;
+    const valid = db.orders.filter((o) => o.status !== 'لغو شده');
+    const revenue = valid.reduce((s, o) => s + o.total, 0);
+    const low = db.products.filter((p) => p.stock <= 3).sort((a, b) => a.stock - b.stock);
+    $('#tabc').innerHTML = `<h2>داشبورد</h2>
+      <div class="stats">
+        <div class="stat"><small>تعداد کالاها</small><b>${fmt(db.products.length)}</b></div>
+        <div class="stat"><small>کالاهای تخفیف‌دار</small><b>${fmt(db.products.filter((p) => discountPct(p) > 0).length)}</b></div>
+        <div class="stat"><small>سفارش‌ها</small><b>${fmt(db.orders.length)}</b></div>
+        <div class="stat"><small>فروش کل</small><b style="font-size:1.2rem">${toman(revenue)}</b></div>
+        <div class="stat"><small>کالای کم‌موجود (≤۳)</small><b class="${low.length ? 'warn' : ''}">${fmt(low.length)}</b></div>
+      </div>
+      <div class="two">
+        <div class="panel"><h3>آخرین سفارش‌ها</h3>${db.orders.length ? `<table><tbody>${db.orders.slice(0, 6).map((o) => `<tr><td dir="ltr">${o.id}</td><td>${esc(o.customer.name)}</td><td>${toman(o.total)}</td><td><span class="pill">${o.status}</span></td></tr>`).join('')}</tbody></table>` : '<p class="muted">هنوز سفارشی ثبت نشده.</p>'}</div>
+        <div class="panel"><h3>هشدار موجودی</h3>${low.length ? `<table><tbody>${low.slice(0, 8).map((p) => `<tr><td dir="auto">${esc(p.name)}</td><td class="${p.stock ? 'warn' : 'bad'}">${p.stock ? fmt(p.stock) + ' عدد' : 'ناموجود'}</td></tr>`).join('')}</tbody></table>` : '<p class="muted">همه کالاها موجودی کافی دارند.</p>'}</div>
+      </div>`;
+  }
+
+  /* ---------- Products ---------- */
+  function specFields(cat, spec) {
+    return (Store.db.specSchema[cat] || []).map((f) => {
+      const v = spec[f.k] ?? '';
+      const input = f.type === 'select'
+        ? `<select name="s_${f.k}">${f.options.map((o) => `<option ${String(v) === o ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select>`
+        : `<input name="s_${f.k}" type="${f.type === 'number' ? 'number' : 'text'}" value="${esc(v)}" ${f.type === 'number' ? 'step="any"' : ''}>`;
+      return `<div class="field"><label>${esc(f.label)}</label>${input}</div>`;
+    }).join('');
+  }
+
+  function productForm(id) {
+    const db = Store.db;
+    const old = id ? Store.product(id) : null;
+    const p = old ? JSON.parse(JSON.stringify(old)) : { cat: 'cpu', name: '', brand: '', price: '', discount: 0, stock: 1, img: '', spec: {} };
+    const m = modal(`<h3>${old ? 'ویرایش کالا' : 'کالای جدید'}</h3>
+      <form id="pf"><div class="form-grid">
+        <div class="field full"><label>نام کالا</label><input name="name" required value="${esc(p.name)}"></div>
+        <div class="field"><label>برند</label><input name="brand" required value="${esc(p.brand)}"></div>
+        <div class="field"><label>دسته‌بندی</label><select name="cat" ${old ? 'disabled' : ''}>${db.categories.map((c) => `<option value="${c.id}" ${c.id === p.cat ? 'selected' : ''}>${c.name}</option>`).join('')}</select></div>
+        <div class="field"><label>قیمت (تومان)</label><input name="price" type="number" min="0" required value="${esc(p.price)}"></div>
+        <div class="field"><label>تخفیف (٪)</label><input name="discount" type="number" min="0" max="90" value="${esc(p.discount)}"></div>
+        <div class="field"><label>موجودی</label><input name="stock" type="number" min="0" required value="${esc(p.stock)}"></div>
+        <div class="field"><label>آدرس تصویر (اختیاری)</label><input name="img" dir="ltr" value="${esc(p.img)}" placeholder="https://…"></div>
+      </div>
+      <h4 style="margin:6px 0 10px">مشخصات فنی</h4>
+      <div class="form-grid" id="specs">${specFields(p.cat, p.spec)}</div>
+      <div class="row" style="margin-top:14px"><button class="btn btn-primary">ذخیره</button><button type="button" class="btn btn-ghost" data-cancel>انصراف</button></div></form>`);
+    const f = $('#pf', m);
+    f.cat.onchange = () => ($('#specs', m).innerHTML = specFields(f.cat.value, {}));
+    $('[data-cancel]', m).onclick = () => m.remove();
+    f.onsubmit = (e) => {
+      e.preventDefault();
+      const cat = old ? old.cat : f.cat.value;
+      const spec = {};
+      (db.specSchema[cat] || []).forEach((fd) => {
+        const v = f['s_' + fd.k].value;
+        spec[fd.k] = fd.type === 'number' ? Number(v) : v.trim();
+      });
+      const data = { cat, name: f.name.value.trim(), brand: f.brand.value.trim(), price: Number(f.price.value), discount: Math.min(90, Math.max(0, Number(f.discount.value) || 0)),
+        stock: Math.max(0, Math.floor(Number(f.stock.value) || 0)), img: f.img.value.trim(), spec };
+      if (!data.name || !(data.price > 0)) return toast('نام و قیمت معتبر وارد کنید', true);
+      if (old) Object.assign(old, data);
+      else db.products.push({ id: 'p' + Date.now().toString(36), ...data });
+      Store.save(); m.remove(); toast('ذخیره شد ✔'); tabProducts();
+    };
+  }
+
+  function tabProducts() {
+    const db = Store.db;
+    $('#tabc').innerHTML = `<div class="row" style="justify-content:space-between;margin-bottom:14px"><h2 style="margin:0">کالاها</h2><button class="btn btn-primary" id="addP">+ کالای جدید</button></div>
+      <div class="row" style="margin-bottom:14px"><input id="pq" style="max-width:320px" placeholder="جستجو نام/برند…" value="${esc(S.pq)}">
+        <select id="pc" style="max-width:240px"><option value="">همه دسته‌ها</option>${db.categories.map((c) => `<option value="${c.id}" ${S.pc === c.id ? 'selected' : ''}>${c.name}</option>`).join('')}</select></div>
+      <div class="panel table-wrap" id="ptbl"></div>`;
+    const paint = () => {
+      const q = S.pq.trim().toLowerCase();
+      const items = db.products.filter((p) => (!S.pc || p.cat === S.pc) && (!q || (p.name + ' ' + p.brand).toLowerCase().includes(q)));
+      $('#ptbl').innerHTML = `<table><thead><tr><th>نام</th><th>دسته</th><th>قیمت</th><th>تخفیف</th><th>قیمت نهایی</th><th>موجودی</th><th></th></tr></thead><tbody>
+        ${items.map((p) => `<tr><td dir="auto"><b>${esc(p.name)}</b><br><small class="muted">${esc(p.brand)}</small></td><td>${Store.cat(p.cat).name}</td><td>${fmt(p.price)}</td>
+        <td>${p.discount ? '٪' + fmt(p.discount) : '—'}</td><td class="good">${fmt(finalPrice(p))}</td><td class="${p.stock <= 3 ? 'warn' : ''}">${fmt(p.stock)}</td>
+        <td style="white-space:nowrap"><button class="btn btn-ghost btn-sm" data-edit="${p.id}">ویرایش</button> <button class="btn btn-danger btn-sm" data-del="${p.id}">حذف</button></td></tr>`).join('')}
+        </tbody></table>${items.length ? '' : '<div class="empty">موردی نیست</div>'}`;
+      $('#ptbl').querySelectorAll('[data-edit]').forEach((b) => (b.onclick = () => productForm(b.dataset.edit)));
+      $('#ptbl').querySelectorAll('[data-del]').forEach((b) => (b.onclick = () => {
+        const p = Store.product(b.dataset.del);
+        if (!confirm(`«${p.name}» حذف شود؟`)) return;
+        db.products.splice(db.products.indexOf(p), 1); Store.save(); toast('حذف شد'); paint();
+      }));
+    };
+    $('#addP').onclick = () => productForm();
+    $('#pq').oninput = (e) => { S.pq = e.target.value; paint(); };
+    $('#pc').onchange = (e) => { S.pc = e.target.value; paint(); };
+    paint();
+  }
+
+  /* ---------- Discounts ---------- */
+  function tabDisc() {
+    const db = Store.db;
+    const discounted = db.products.filter((p) => p.discount > 0);
+    $('#tabc').innerHTML = `<h2>مدیریت تخفیف‌ها</h2>
+      <div class="two">
+        <div class="panel"><h3>جشنواره سراسری</h3><p class="muted" style="margin-bottom:10px">روی همه کالاها اعمال می‌شود (اگر تخفیف خود کالا بیشتر باشد، همان معتبر است). ۰ = غیرفعال</p>
+          <div class="row" style="flex-wrap:nowrap"><input id="gs" type="number" min="0" max="90" value="${esc(db.settings.globalSale)}"><button class="btn btn-primary" id="gsb">ثبت</button></div></div>
+        <div class="panel"><h3>تخفیف گروهی روی یک دسته</h3>
+          <div class="row" style="flex-wrap:nowrap"><select id="bc"><option value="*">همه دسته‌ها</option>${db.categories.map((c) => `<option value="${c.id}">${c.name}</option>`).join('')}</select><input id="bp" type="number" min="0" max="90" placeholder="٪" style="max-width:90px"><button class="btn btn-primary" id="bb">اعمال</button></div></div>
+      </div>
+      <div class="panel"><h3>کدهای تخفیف</h3><div class="table-wrap"><table><thead><tr><th>کد</th><th>درصد</th><th>وضعیت</th><th></th></tr></thead><tbody>
+        ${db.coupons.map((c, i) => `<tr><td dir="ltr"><b>${esc(c.code)}</b></td><td>٪${fmt(c.percent)}</td><td><button class="pill ${c.active ? 'on' : 'off'}" data-tg="${i}" style="cursor:pointer">${c.active ? 'فعال' : 'غیرفعال'}</button></td><td><button class="btn btn-danger btn-sm" data-dc="${i}">حذف</button></td></tr>`).join('')}
+        </tbody></table></div>
+        <form id="cf" class="row" style="margin-top:14px;flex-wrap:nowrap"><input name="code" placeholder="کد (مثلاً SPRING15)" dir="ltr" required><input name="percent" type="number" min="1" max="90" placeholder="درصد" required style="max-width:110px"><button class="btn btn-primary">افزودن کد</button></form></div>
+      <div class="panel"><h3>کالاهای دارای تخفیف (${fmt(discounted.length)})</h3><div class="table-wrap"><table><thead><tr><th>کالا</th><th>تخفیف ٪</th><th>قیمت نهایی</th><th></th></tr></thead><tbody>
+        ${discounted.map((p) => `<tr><td dir="auto">${esc(p.name)}</td><td><input type="number" min="0" max="90" value="${p.discount}" data-pd="${p.id}"></td><td class="good">${fmt(finalPrice(p))}</td><td><button class="btn btn-ghost btn-sm" data-rd="${p.id}">حذف تخفیف</button></td></tr>`).join('') || '<tr><td colspan="4" class="muted">کالایی تخفیف ندارد</td></tr>'}
+        </tbody></table></div></div>`;
+    $('#gsb').onclick = () => { db.settings.globalSale = Math.min(90, Math.max(0, Number($('#gs').value) || 0)); Store.save(); toast('ثبت شد ✔'); };
+    $('#bb').onclick = () => {
+      const c = $('#bc').value, v = Math.min(90, Math.max(0, Number($('#bp').value) || 0));
+      let n = 0; db.products.forEach((p) => { if (c === '*' || p.cat === c) { p.discount = v; n++; } });
+      Store.save(); toast(`تخفیف روی ${fmt(n)} کالا اعمال شد`); tabDisc();
+    };
+    $('#cf').onsubmit = (e) => {
+      e.preventDefault();
+      const f = new FormData(e.target); const code = f.get('code').trim().toUpperCase();
+      if (db.coupons.some((c) => c.code === code)) return toast('این کد قبلاً وجود دارد', true);
+      db.coupons.push({ code, percent: Math.min(90, Number(f.get('percent'))), active: true }); Store.save(); tabDisc();
+    };
+    document.querySelectorAll('[data-tg]').forEach((b) => (b.onclick = () => { const c = db.coupons[b.dataset.tg]; c.active = !c.active; Store.save(); tabDisc(); }));
+    document.querySelectorAll('[data-dc]').forEach((b) => (b.onclick = () => { db.coupons.splice(b.dataset.dc, 1); Store.save(); tabDisc(); }));
+    document.querySelectorAll('[data-pd]').forEach((i) => (i.onchange = () => { Store.product(i.dataset.pd).discount = Math.min(90, Math.max(0, Number(i.value) || 0)); Store.save(); tabDisc(); }));
+    document.querySelectorAll('[data-rd]').forEach((b) => (b.onclick = () => { Store.product(b.dataset.rd).discount = 0; Store.save(); tabDisc(); }));
+  }
+
+  /* ---------- Orders ---------- */
+  const STATUS = ['جدید', 'در حال آماده‌سازی', 'ارسال شده', 'تحویل شده', 'لغو شده'];
+  function tabOrders() {
+    const db = Store.db;
+    $('#tabc').innerHTML = `<h2>سفارش‌ها</h2><div class="panel table-wrap">${db.orders.length ? `<table><thead><tr><th>کد</th><th>تاریخ</th><th>مشتری</th><th>مبلغ</th><th>وضعیت</th><th></th></tr></thead><tbody>
+      ${db.orders.map((o) => `<tr><td dir="ltr">${o.id}</td><td>${new Date(o.date).toLocaleDateString('fa-IR')}</td><td>${esc(o.customer.name)}<br><small class="muted" dir="ltr">${esc(o.customer.phone)}</small></td><td>${toman(o.total)}</td>
+      <td><select data-st="${o.id}">${STATUS.map((s) => `<option ${s === o.status ? 'selected' : ''}>${s}</option>`).join('')}</select></td>
+      <td style="white-space:nowrap"><button class="btn btn-ghost btn-sm" data-vo="${o.id}">جزئیات</button> <button class="btn btn-danger btn-sm" data-do="${o.id}">حذف</button></td></tr>`).join('')}</tbody></table>` : '<div class="empty">هنوز سفارشی ثبت نشده است.</div>'}</div>`;
+    document.querySelectorAll('[data-st]').forEach((s) => (s.onchange = () => { db.orders.find((o) => o.id === s.dataset.st).status = s.value; Store.save(); toast('وضعیت به‌روز شد'); }));
+    document.querySelectorAll('[data-do]').forEach((b) => (b.onclick = () => { if (!confirm('سفارش حذف شود؟')) return; db.orders = db.orders.filter((o) => o.id !== b.dataset.do); Store.save(); tabOrders(); }));
+    document.querySelectorAll('[data-vo]').forEach((b) => (b.onclick = () => {
+      const o = db.orders.find((x) => x.id === b.dataset.vo);
+      modal(`<h3 dir="ltr">${o.id}</h3><p class="muted">${esc(o.customer.name)} — ${esc(o.customer.phone)}<br>${esc(o.customer.address)}</p>
+        <table style="margin-top:10px"><tbody>${o.items.map((i) => `<tr><td dir="auto">${esc(i.name)}</td><td>× ${fmt(i.qty)}</td><td>${fmt(i.unit * i.qty)}</td></tr>`).join('')}</tbody></table>
+        <div class="totals"><div class="line"><span>جمع</span><span>${toman(o.subtotal)}</span></div>${o.coupon ? `<div class="line"><span>کد ${esc(o.coupon)}</span><span class="good">− ${toman(o.couponDiscount)}</span></div>` : ''}<div class="line grand"><span>مبلغ نهایی</span><span>${toman(o.total)}</span></div></div>`);
+    }));
+  }
+
+  /* ---------- Settings ---------- */
+  function tabSettings() {
+    const db = Store.db;
+    $('#tabc').innerHTML = `<h2>تنظیمات</h2>
+      <div class="panel"><form id="sf" class="form-grid">
+        <div class="field"><label>هزینه اسمبل و تست (تومان)</label><input name="fee" type="number" min="0" value="${esc(db.settings.assemblyFee)}"></div>
+        <div class="field"><label>تلفن پشتیبانی</label><input name="phone" value="${esc(db.settings.phone)}"></div>
+        <div class="full"><button class="btn btn-primary">ذخیره تنظیمات</button></div></form></div>
+      <div class="panel"><h3>پشتیبان‌گیری و بازنشانی</h3><p class="muted" style="margin-bottom:12px">داده‌ها فقط در مرورگر همین دستگاه ذخیره می‌شوند؛ از آن‌ها نسخه پشتیبان بگیرید.</p>
+        <div class="row"><button class="btn btn-ghost" id="ex">⬇ خروجی JSON</button><label class="btn btn-ghost" style="margin:0;cursor:pointer">⬆ ورود JSON<input id="im" type="file" accept=".json" hidden></label><button class="btn btn-danger" id="rs">بازنشانی به داده‌های اولیه</button></div></div>`;
+    $('#sf').onsubmit = (e) => { e.preventDefault(); db.settings.assemblyFee = Math.max(0, Number(e.target.fee.value) || 0); db.settings.phone = e.target.phone.value.trim(); Store.save(); toast('ذخیره شد ✔'); };
+    $('#ex').onclick = () => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([JSON.stringify(db, null, 2)], { type: 'application/json' }));
+      a.download = 'erfan-backup.json'; a.click(); URL.revokeObjectURL(a.href);
+    };
+    $('#im').onchange = (e) => {
+      const file = e.target.files[0]; if (!file) return;
+      const r = new FileReader();
+      r.onload = () => { try { const o = JSON.parse(r.result); if (!Array.isArray(o.products) || !o.settings) throw 0; Store.replace(o); toast('ورود داده انجام شد ✔'); tabSettings(); } catch (x) { toast('فایل معتبر نیست', true); } };
+      r.readAsText(file);
+    };
+    $('#rs').onclick = () => { if (confirm('همه داده‌ها (کالاها، سفارش‌ها، کدها) به حالت اولیه برگردد؟')) { Store.reset(); toast('بازنشانی شد'); tabSettings(); } };
+  }
+
+  window.AdminApp = { start() { authed() ? panel() : loginView(); } };
+})();
+
+</script>
+</body>
+</html>
